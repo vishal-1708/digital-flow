@@ -1,21 +1,7 @@
-/* =========================================
-   DIGITAL FLOW — GLOBAL STYLESHEET (v6)
-   Black is the dominant background.
-   White is the dominant text/foreground.
-   Green is ONLY for organic growth proof + brand dot.
-   ========================================= */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  overflow-x: hidden;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { overflow-x: hidden; }
 
 :root {
   --black: #0a0a0a;
@@ -35,12 +21,8 @@ body {
   width: 100%;
 }
 
-h1, h2, p, a {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
+h1, h2, p, a { word-wrap: break-word; overflow-wrap: break-word; }
 
-/* ---------- HEADER ---------- */
 .site-header {
   display: flex;
   justify-content: space-between;
@@ -78,7 +60,7 @@ h1, h2, p, a {
   justify-content: flex-end;
   align-items: center;
   gap: 18px;
-  flex-wrap: nowrap; /* keeps nav links on one line, never wraps */
+  flex-wrap: nowrap;
 }
 
 .main-nav a {
@@ -90,12 +72,8 @@ h1, h2, p, a {
   transition: color 0.2s ease;
 }
 
-.main-nav a:hover,
-.main-nav a:focus {
-  color: var(--white);
-}
+.main-nav a:hover, .main-nav a:focus { color: var(--white); }
 
-/* ---------- HERO SECTION ---------- */
 .hero {
   padding: 90px 6% 70px;
   border-bottom: 1px solid var(--border-gray);
@@ -115,13 +93,6 @@ h1, h2, p, a {
   max-width: 600px;
 }
 
-/* =========================================
-   CARD GRID SYSTEM
-   Used for: home page summary cards, blog cards.
-   Uses flex-wrap so cards keep a safe minimum width
-   and never squeeze text into single-word lines.
-   ========================================= */
-
 .card-grid {
   display: flex;
   flex-wrap: wrap;
@@ -130,7 +101,7 @@ h1, h2, p, a {
 }
 
 .card {
-  flex: 1 1 260px; /* grow/shrink, never smaller than 260px */
+  flex: 1 1 260px;
   max-width: 400px;
   background-color: var(--black-soft);
   border: 1px solid var(--border-gray);
@@ -141,36 +112,12 @@ h1, h2, p, a {
   display: block;
 }
 
-.card:hover {
-  border-color: var(--green);
-  transform: translateY(-2px);
-}
-
-.card-inner {
-  padding: 26px;
-}
-
-.card h2 {
-  font-size: 1.15rem;
-  margin-bottom: 10px;
-  color: var(--white);
-}
-
-.card p {
-  color: var(--gray-text);
-  font-size: 0.92rem;
-  margin-bottom: 14px;
-}
-
-.card .card-arrow {
-  color: var(--white);
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.card:hover .card-arrow {
-  color: var(--green);
-}
+.card:hover { border-color: var(--green); transform: translateY(-2px); }
+.card-inner { padding: 26px; }
+.card h2 { font-size: 1.15rem; margin-bottom: 10px; color: var(--white); }
+.card p { color: var(--gray-text); font-size: 0.92rem; margin-bottom: 14px; }
+.card .card-arrow { color: var(--white); font-weight: 600; font-size: 0.9rem; }
+.card:hover .card-arrow { color: var(--green); }
 
 .blog-date {
   color: var(--gray-text);
@@ -179,7 +126,6 @@ h1, h2, p, a {
   margin-bottom: 6px;
 }
 
-/* ---------- LINK BUTTON (used inline in paragraphs) ---------- */
 .link-arrow {
   color: var(--white);
   text-decoration: none;
@@ -188,12 +134,8 @@ h1, h2, p, a {
   padding-bottom: 2px;
 }
 
-.link-arrow:hover {
-  color: var(--green);
-  border-color: var(--green);
-}
+.link-arrow:hover { color: var(--green); border-color: var(--green); }
 
-/* ---------- ORGANIC / GREEN DOT ---------- */
 .organic-dot {
   display: inline-block;
   width: 10px;
@@ -204,7 +146,6 @@ h1, h2, p, a {
   flex-shrink: 0;
 }
 
-/* ---------- STAT CALLOUT ---------- */
 .stat-callout {
   font-size: clamp(1.8rem, 6vw, 2.6rem);
   font-weight: 700;
@@ -213,6 +154,82 @@ h1, h2, p, a {
   align-items: center;
 }
 
-.stat-label {
+.stat-label { color: var(--gray-text); font-size: 0.9rem; margin-top: 4px; }
+
+.page-content { padding: 60px 6%; max-width: 900px; }
+.page-content h1 { font-size: clamp(1.6rem, 5vw, 2.2rem); margin-bottom: 18px; }
+.page-content h2 { font-size: clamp(1.05rem, 3vw, 1.4rem); margin-top: 28px; margin-bottom: 10px; }
+.page-content p { color: var(--gray-text); margin-bottom: 14px; }
+.blog-page { max-width: 1100px; }
+
+.case-study {
+  border: 1px solid var(--border-gray);
+  background-color: var(--black-soft);
+  padding: 24px;
+  margin-top: 24px;
+  border-radius: 8px;
+}
+
+.badge {
+  display: inline-block;
+  border: 1px solid var(--gray-text);
   color: var(--gray-text);
-  font-size:
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+.roadmap-item {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-gray);
+  color: var(--gray-text);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 480px;
+  margin-top: 26px;
+  width: 100%;
+}
+
+.contact-form input, .contact-form textarea {
+  background-color: var(--black-soft);
+  border: 1px solid var(--border-gray);
+  color: var(--white);
+  padding: 12px;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.contact-form button {
+  background-color: var(--white);
+  color: var(--black);
+  border: none;
+  padding: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.contact-form button:hover { background-color: var(--green); }
+
+.site-footer {
+  padding: 22px 6%;
+  color: var(--gray-text);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border-gray);
+}
+
+@media (max-width: 700px) {
+  .site-header { padding: 12px 4%; gap: 6px; }
+  .brand { font-size: 0.95rem; }
+  .main-nav { gap: 10px; }
+  .main-nav a { font-size: 0.72rem; }
+  .hero, .page-content, .card-grid, .site-footer { padding-left: 5%; padding-right: 5%; }
+  .card { flex: 1 1 100%; max-width: 100%; }
+}

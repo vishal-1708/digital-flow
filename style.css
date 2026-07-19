@@ -1,8 +1,8 @@
 /* =========================================
-   DIGITAL FLOW — GLOBAL STYLESHEET (v4)
-   Color rule: Black + White is the base.
-   Green is ONLY used for organic growth proof points
-   and the header brand dot.
+   DIGITAL FLOW — GLOBAL STYLESHEET (v5)
+   Black is the dominant background.
+   White is the dominant text/foreground.
+   Green is ONLY for organic growth proof + brand dot.
    ========================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
@@ -19,7 +19,7 @@ html {
 
 :root {
   --black: #0a0a0a;
-  --black-soft: #111111;
+  --black-soft: #131313;
   --white: #ffffff;
   --gray-text: #b3b3b3;
   --border-gray: #2a2a2a;
@@ -46,18 +46,20 @@ h1, h2, p, a {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 20px 6%;
+  gap: 12px;
+  padding: 18px 6%;
   border-bottom: 1px solid var(--border-gray);
 }
 
 .brand {
   display: flex;
   align-items: center;
-  font-size: clamp(1.1rem, 4vw, 1.4rem);
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--white);
   text-decoration: none;
   letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 
 .brand-dot {
@@ -72,8 +74,11 @@ h1, h2, p, a {
 
 .main-nav {
   display: flex;
-  gap: 24px;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
   flex-wrap: wrap;
+  flex: 1;
 }
 
 .main-nav a {
@@ -81,6 +86,7 @@ h1, h2, p, a {
   text-decoration: none;
   font-weight: 400;
   font-size: 0.9rem;
+  white-space: nowrap;
   transition: color 0.2s ease;
 }
 
@@ -91,59 +97,90 @@ h1, h2, p, a {
 
 /* ---------- HERO SECTION ---------- */
 .hero {
-  padding: clamp(60px, 12vw, 120px) 6% clamp(50px, 10vw, 100px);
+  padding: 90px 6% 70px;
   border-bottom: 1px solid var(--border-gray);
 }
 
 .hero h1 {
-  font-size: clamp(1.8rem, 6vw, 3rem);
+  font-size: clamp(1.7rem, 5.5vw, 2.8rem);
   font-weight: 700;
   max-width: 850px;
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
 .hero p {
-  margin-top: 20px;
-  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  margin-top: 18px;
+  font-size: clamp(0.95rem, 2.2vw, 1.05rem);
   color: var(--gray-text);
   max-width: 600px;
 }
 
-/* ---------- SUMMARY GRID (Home page cards) ---------- */
-.summary-grid-wrapper {
-  padding: clamp(40px, 8vw, 70px) 6%;
-}
+/* =========================================
+   CARD GRID SYSTEM
+   Used for: home page summary cards, blog cards.
+   Uses flex-wrap instead of a fixed grid column count,
+   so cards keep a safe minimum width and never squeeze
+   text into single-word lines.
+   ========================================= */
 
-.summary-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
+  padding: 50px 6%;
 }
 
-.grid-card {
+.card {
+  flex: 1 1 260px;   /* grow/shrink, but never smaller than 260px */
+  max-width: 400px;
   background-color: var(--black-soft);
   border: 1px solid var(--border-gray);
   border-radius: 8px;
-  padding: 28px;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, transform 0.15s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
-.grid-card:hover {
+.card:hover {
   border-color: var(--green);
+  transform: translateY(-2px);
 }
 
-.grid-card h2 {
-  font-size: clamp(1.1rem, 3vw, 1.4rem);
+.card-inner {
+  padding: 26px;
+}
+
+.card h2 {
+  font-size: 1.15rem;
   margin-bottom: 10px;
+  color: var(--white);
 }
 
-.grid-card p {
+.card p {
   color: var(--gray-text);
-  font-size: 0.95rem;
-  margin-bottom: 16px;
+  font-size: 0.92rem;
+  margin-bottom: 14px;
 }
 
-/* ---------- LINK BUTTON ---------- */
+.card .card-arrow {
+  color: var(--white);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.card:hover .card-arrow {
+  color: var(--green);
+}
+
+.blog-date {
+  color: var(--gray-text);
+  font-size: 0.8rem;
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* ---------- LINK BUTTON (used inline in normal paragraphs) ---------- */
 .link-arrow {
   color: var(--white);
   text-decoration: none;
@@ -151,3 +188,117 @@ h1, h2, p, a {
   border-bottom: 1px solid var(--white);
   padding-bottom: 2px;
 }
+
+.link-arrow:hover {
+  color: var(--green);
+  border-color: var(--green);
+}
+
+/* ---------- ORGANIC / GREEN DOT ---------- */
+.organic-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: var(--green);
+  border-radius: 50%;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+/* ---------- STAT CALLOUT ---------- */
+.stat-callout {
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+  font-weight: 700;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+}
+
+.stat-label {
+  color: var(--gray-text);
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+/* ---------- PAGE CONTAINER (About, Projects, Blog, Contact) ---------- */
+.page-content {
+  padding: 60px 6%;
+  max-width: 900px;
+}
+
+.page-content h1 {
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  margin-bottom: 18px;
+}
+
+.page-content h2 {
+  font-size: clamp(1.05rem, 3vw, 1.4rem);
+  margin-top: 28px;
+  margin-bottom: 10px;
+}
+
+.page-content p {
+  color: var(--gray-text);
+  margin-bottom: 14px;
+}
+
+/* Blog page needs a little more room since cards sit side by side */
+.blog-page {
+  max-width: 1100px;
+}
+
+/* ---------- CASE STUDY CARDS (Projects page) ---------- */
+.case-study {
+  border: 1px solid var(--border-gray);
+  background-color: var(--black-soft);
+  padding: 24px;
+  margin-top: 24px;
+  border-radius: 8px;
+}
+
+.badge {
+  display: inline-block;
+  border: 1px solid var(--gray-text);
+  color: var(--gray-text);
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+/* ---------- ROADMAP ---------- */
+.roadmap-item {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-gray);
+  color: var(--gray-text);
+}
+
+/* ---------- CONTACT FORM ---------- */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 480px;
+  margin-top: 26px;
+  width: 100%;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background-color: var(--black-soft);
+  border: 1px solid var(--border-gray);
+  color: var(--white);
+  padding: 12px;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.contact-form button {
+  background-color: var(--white);
+  color: var(--black);
+  border: none;
+  padding: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
